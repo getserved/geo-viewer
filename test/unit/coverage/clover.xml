@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1606386404224" clover="3.2.0">
+  <project timestamp="1606386404224" name="All files">
+    <metrics statements="214" coveredstatements="16" conditionals="59" coveredconditionals="0" methods="86" coveredmethods="4" elements="359" coveredelements="20" complexity="0" loc="214" ncloc="214" packages="4" files="11" classes="11"/>
+    <package name="src">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="App.vue" path="E:\vuejs\geo-viewer\src\App.vue">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="8" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="49" coveredstatements="9" conditionals="4" coveredconditionals="0" methods="20" coveredmethods="1"/>
+      <file name="BaseMap.vue" path="E:\vuejs\geo-viewer\src\components\BaseMap.vue">
+        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+      </file>
+      <file name="GeoViewer.vue" path="E:\vuejs\geo-viewer\src\components\GeoViewer.vue">
+        <metrics statements="20" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+      </file>
+      <file name="MapBox.vue" path="E:\vuejs\geo-viewer\src\components\MapBox.vue">
+        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+      </file>
+      <file name="SideBar.vue" path="E:\vuejs\geo-viewer\src\components\SideBar.vue">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+      <file name="SwtichOption.vue" path="E:\vuejs\geo-viewer\src\components\SwtichOption.vue">
+        <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.filters">
+      <metrics statements="26" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="14" coveredmethods="3"/>
+      <file name="AutoComplete.vue" path="E:\vuejs\geo-viewer\src\components\filters\AutoComplete.vue">
+        <metrics statements="7" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+      </file>
+      <file name="CheckBox.vue" path="E:\vuejs\geo-viewer\src\components\filters\CheckBox.vue">
+        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="DoubleRange.vue" path="E:\vuejs\geo-viewer\src\components\filters\DoubleRange.vue">
+        <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+      </file>
+      <file name="RangePicker.vue" path="E:\vuejs\geo-viewer\src\components\filters\RangePicker.vue">
+        <metrics statements="10" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.store">
+      <metrics statements="138" coveredstatements="0" conditionals="53" coveredconditionals="0" methods="52" coveredmethods="0"/>
+      <file name="store.js" path="E:\vuejs\geo-viewer\src\store\store.js">
+        <metrics statements="138" coveredstatements="0" conditionals="53" coveredconditionals="0" methods="52" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="219" count="0" type="stmt"/>
+        <line num="222" count="0" type="stmt"/>
+        <line num="225" count="0" type="stmt"/>
+        <line num="228" count="0" type="stmt"/>
+        <line num="231" count="0" type="stmt"/>
+        <line num="234" count="0" type="stmt"/>
+        <line num="237" count="0" type="stmt"/>
+        <line num="240" count="0" type="stmt"/>
+        <line num="243" count="0" type="stmt"/>
+        <line num="247" count="0" type="stmt"/>
+        <line num="249" count="0" type="stmt"/>
+        <line num="250" count="0" type="stmt"/>
+        <line num="251" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="253" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="254" count="0" type="stmt"/>
+        <line num="259" count="0" type="stmt"/>
+        <line num="260" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="263" count="0" type="stmt"/>
+        <line num="267" count="0" type="stmt"/>
+        <line num="270" count="0" type="stmt"/>
+        <line num="272" count="0" type="stmt"/>
+        <line num="273" count="0" type="stmt"/>
+        <line num="274" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="275" count="0" type="stmt"/>
+        <line num="276" count="0" type="stmt"/>
+        <line num="279" count="0" type="stmt"/>
+        <line num="281" count="0" type="stmt"/>
+        <line num="284" count="0" type="stmt"/>
+        <line num="286" count="0" type="stmt"/>
+        <line num="287" count="0" type="stmt"/>
+        <line num="288" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="289" count="0" type="stmt"/>
+        <line num="290" count="0" type="stmt"/>
+        <line num="293" count="0" type="stmt"/>
+        <line num="295" count="0" type="stmt"/>
+        <line num="298" count="0" type="stmt"/>
+        <line num="299" count="0" type="stmt"/>
+        <line num="304" count="0" type="stmt"/>
+        <line num="305" count="0" type="stmt"/>
+        <line num="310" count="0" type="stmt"/>
+        <line num="311" count="0" type="stmt"/>
+        <line num="314" count="0" type="stmt"/>
+        <line num="315" count="0" type="stmt"/>
+        <line num="316" count="0" type="stmt"/>
+        <line num="318" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="319" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="320" count="0" type="stmt"/>
+        <line num="322" count="0" type="stmt"/>
+        <line num="325" count="0" type="stmt"/>
+        <line num="330" count="0" type="stmt"/>
+        <line num="331" count="0" type="stmt"/>
+        <line num="332" count="0" type="stmt"/>
+        <line num="333" count="0" type="stmt"/>
+        <line num="335" count="0" type="stmt"/>
+        <line num="338" count="0" type="stmt"/>
+        <line num="343" count="0" type="stmt"/>
+        <line num="346" count="0" type="stmt"/>
+        <line num="349" count="0" type="stmt"/>
+        <line num="352" count="0" type="stmt"/>
+        <line num="355" count="0" type="stmt"/>
+        <line num="358" count="0" type="stmt"/>
+        <line num="361" count="0" type="stmt"/>
+        <line num="365" count="0" type="stmt"/>
+        <line num="366" count="0" type="stmt"/>
+        <line num="367" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="368" count="0" type="stmt"/>
+        <line num="375" count="0" type="stmt"/>
+        <line num="376" count="0" type="stmt"/>
+        <line num="377" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="378" count="0" type="stmt"/>
+        <line num="385" count="0" type="stmt"/>
+        <line num="391" count="0" type="stmt"/>
+        <line num="392" count="0" type="stmt"/>
+        <line num="393" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="394" count="0" type="stmt"/>
+        <line num="401" count="0" type="stmt"/>
+        <line num="407" count="0" type="stmt"/>
+        <line num="409" count="0" type="stmt"/>
+        <line num="416" count="0" type="stmt"/>
+        <line num="417" count="0" type="stmt"/>
+        <line num="418" count="0" type="stmt"/>
+        <line num="419" count="0" type="stmt"/>
+        <line num="422" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="424" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="425" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="426" count="0" type="stmt"/>
+        <line num="427" count="0" type="stmt"/>
+        <line num="428" count="0" type="stmt"/>
+        <line num="431" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="432" count="0" type="stmt"/>
+        <line num="433" count="0" type="stmt"/>
+        <line num="435" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="436" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="437" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="438" count="0" type="stmt"/>
+        <line num="439" count="0" type="stmt"/>
+        <line num="440" count="0" type="stmt"/>
+        <line num="441" count="0" type="stmt"/>
+        <line num="442" count="0" type="stmt"/>
+        <line num="443" count="0" type="stmt"/>
+        <line num="444" count="0" type="stmt"/>
+        <line num="446" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="447" count="0" type="stmt"/>
+        <line num="448" count="0" type="stmt"/>
+        <line num="449" count="0" type="stmt"/>
+        <line num="450" count="0" type="stmt"/>
+        <line num="451" count="0" type="stmt"/>
+        <line num="452" count="0" type="stmt"/>
+        <line num="453" count="0" type="stmt"/>
+        <line num="458" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="459" count="0" type="stmt"/>
+        <line num="460" count="0" type="stmt"/>
+        <line num="465" count="0" type="stmt"/>
+        <line num="471" count="0" type="stmt"/>
+        <line num="473" count="0" type="stmt"/>
+        <line num="475" count="0" type="stmt"/>
+        <line num="476" count="0" type="stmt"/>
+        <line num="477" count="0" type="stmt"/>
+        <line num="479" count="0" type="stmt"/>
+        <line num="480" count="0" type="stmt"/>
+        <line num="481" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="482" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="483" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="484" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="485" count="0" type="stmt"/>
+        <line num="486" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="487" count="0" type="stmt"/>
+        <line num="493" count="0" type="stmt"/>
+        <line num="495" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

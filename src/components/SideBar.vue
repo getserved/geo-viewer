@@ -1,5 +1,5 @@
 <template lang="html">
-	<div ref="sideBar" class="sideBar">
+	<div ref="sideBar" class="side-bar">
 		<a-layout style="min-height: 100vh">
 			<a-layout-header>{{title}}</a-layout-header>
       <a-layout-content>
@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sideBar{
+.side-bar{
 	padding: pxToRem(12);
 }
 .ant-layout-header{
