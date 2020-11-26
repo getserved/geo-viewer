@@ -65,6 +65,7 @@ export default {
 	components: {
 	},
 	computed: {
+    // Getter and Setter for v-model value
     ...mapState(['sidebar']),
 		value: {
 			set (value) {
@@ -81,11 +82,13 @@ export default {
     ]),
 	},
 	methods: {
+    // Case insensitive settings
     filterOption(input, option) {
       return (
         option.componentOptions.children[0].text.toUpperCase().indexOf(input.toUpperCase()) >= 0
       );
     },
+    // Handle actions when selected
     handleSelect (value) {
       this.$store.dispatch(this.onSelect, {'value': value});
     }

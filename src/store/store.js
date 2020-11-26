@@ -1,8 +1,14 @@
+/* Store management of shared states and mutations among all the components */
 import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+/*
+ *obj@params Object: a nested object waiting for flatten
+ *parent@params Object: object's parent object to concat to
+ * this method is used to flatten a nested object into a one-level object
+*/
 const flattenObj = function (obj, parent, res = {}){
   for(let key in obj){
       let propName = key;
@@ -18,33 +24,34 @@ const flattenObj = function (obj, parent, res = {}){
 export const store = new Vuex.Store({
   state: {
     geoviewer: {
-      accessToken: `pk.eyJ1IjoiZ2V0c2VydmVkMDYiLCJhIjoiY2todmUzOWpwMTRwMzJ1cGdlYnQ2dXVmZyJ9.tpYmHGiXb8DYPfih1dReHw`,
-      mapStyle: `mapbox://styles/mapbox/streets-v11`,
-      sourceId: `firstSource`,
-      layerId: `firstLayer`,
-      markerCoordinates: [50, 50],
-      center: [151.209152, -33.875305],
-      zoom: 15,
+      accessToken: ``,  // access token from mapbox's account
+      mapStyle: `mapbox://styles/mapbox/streets-v11`, // style file name from mapbox
+      sourceId: `archistar`,                          // Source ID for geoJSON
+      layerId: `points`,                              // Layer ID for geoJSON
+      markerCoordinates: [50, 50],                    // Marker's coordinates when displayed
+      center: [151.209152, -33.875305],               // Map's center when displayeed
+      zoom: 15,                                       // Zoom value for zoom control
       doFilter: false,
-      geoJSON: null,
-      flattenJSON: null,
+      geoJSON: null,                                  // GeoJSON json object loaded when map initating
+      flattenJSON: null,                              // For flatten data search
       filtered: null,
-      filterExp: ['all'],
-      filterCount: 0,
-      mapLoaded: false
+      filterExp: ['all'],                             // Filter expression generetaed for mapbox's layer filter
+      filterCount: 0,                                 // Count of filters applied
+      mapLoaded: false                                // True when map is fully loaded
     },
+    // Sidebar manage all the function buttons and controllers
     sidebar: {
-      tabs: [
+      tabs: [ // Tabs are for navigation controls
         {
-          title: `Search`,
-          icon: `pushpin`,
-          controllers: [
+          title: `Search`,  // Display title for Tab Panel
+          icon: `pushpin`,  // Display icon for navigator
+          controllers: [    // Controllers manage dynamic controller used in different tabs
             {
-              type: `AutoComplete`,
-              props: {
-                name: `Address`,
-                dataSourceName: `getAddresses`,
-                onSelect: `gotoAddress`
+              type: `AutoComplete`,               // @Mandatory Component type equals to Component's class name
+              props: {                            // @Mandatory Properties for dynamic component generagor
+                name: `Address`,                  // @Mandatory Display of Controller's name
+                dataSourceName: `getAddresses`,   // datasourceName ia assigned to datasource in real-time
+                onSelect: `gotoAddress`           // Bind callback function name when select
               }
             }
           ]
@@ -61,7 +68,7 @@ export const store = new Vuex.Store({
               props: {
                 name: `Category`,
                 filterName: 'SubCategory',
-                type: `category`,
+                type: `category`,                  // Iindicates how to generate filter expression in doFilterExp()
                 dataSourceName: `getCategories`,
                 onSelect: ``,
                 value: ``,
@@ -74,13 +81,13 @@ export const store = new Vuex.Store({
               props: {
                 name: `Site Area`,
                 type: `number`,
-                defaultValue: [0, 500],
+                defaultValue: [0, 20000000],
                 isDefaultDisabled: false,
                 description: ``,
-                min: 0.000,
-                max: 5000.000,
-                step: 10.000,
-                value: [0,500],
+                min: 0.000,                         // Min value for range input
+                max: 20000000.000,                  // Max value for range input
+                step: 10.000,                       // Step value for range input
+                value: [0,20000000],                // @Array(2) [min, max] value for range input
                 disabled: false
               }
             },
@@ -90,13 +97,13 @@ export const store = new Vuex.Store({
               props: {
                 name: `Floor Area`,
                 type: `number`,
-                defaultValue: [0, 500],
+                defaultValue: [0, 100000],
                 isDefaultDisabled: false,
                 description: ``,
                 min: 0.000,
-                max: 5000.000,
-                step: 10.000,
-                value: [0, 500],
+                max: 100000.000,
+                step: 100.000,
+                value: [0, 100000],
                 disabled: false
               }
             },
@@ -106,13 +113,13 @@ export const store = new Vuex.Store({
               props: {
                 name: `Storeys`,
                 type: `number`,
-                defaultValue: [0, 500],
+                defaultValue: [0, 100],
                 isDefaultDisabled: false,
                 description: ``,
                 min: 0.000,
-                max: 5000.000,
-                step: 10.000,
-                value: [0, 500],
+                max: 100.000,
+                step: 5.000,
+                value: [0, 100],
                 disabled: false
               }
             },
@@ -122,24 +129,24 @@ export const store = new Vuex.Store({
               props: {
                 name: `Value`,
                 type: `number`,
-                defaultValue: [0, 500],
+                defaultValue: [0, 1000000],
                 isDefaultDisabled: false,
                 description: ``,
                 min: 0.000,
-                max: 100000.000,
+                max: 1000000.000,
                 step: 100.000,
-                value: [0, 500],
+                value: [0, 1000000],
                 disabled: false
               }
             },
             {
-              type: `RangePicker`,
+              type: `RangePicker`,                    // RangePicker component acquires input [startDate, endDate]
               filter: true,
               props: {
                 name: `Commence Date`,
                 type: `date`,
                 description: ``,
-                value: [],
+                value: [],                            // @Array(2) [startDate, endDate] value for RangePicker
                 disabled: false
               }
             },
@@ -166,14 +173,14 @@ export const store = new Vuex.Store({
               }
             },
             {
-              type: `CheckBox`,
+              type: `CheckBox`,                       // CheckBox component acquires multiple inputs in an Array
               filter: true,
               props: {
                 name: `Ownership`,
                 type: `check`,
                 description: ``,
-                plainOptions: ['PRIVATE', 'LOCAL GOVT', 'STATE'],
-                value: ['PRIVATE', 'LOCAL GOVT', 'STATE'],
+                plainOptions: ['PRIVATE', 'LOCAL GOVT', 'STATE'],   // @Mandatory options in checkbox group display
+                value: ['PRIVATE', 'LOCAL GOVT', 'STATE'],          // Default value for checkbox group
                 disabled: false
               }
             },
@@ -231,8 +238,10 @@ export const store = new Vuex.Store({
     getGeoJSON (state) {
       return state.geoviewer.geoJSON
     },
+    // Get all filters from mutated sidebar
     getFilters (state) {
       let filters = [];
+      // Iterate all controllers in all tabs to find all mutated props
       state.sidebar.tabs.forEach((tab) => {
           const obj = tab.controllers.filter((controller) => {
             return controller.filter && controller.props.disabled
@@ -242,6 +251,7 @@ export const store = new Vuex.Store({
           }
       })
 
+      // Iterate all mutated props to generate filters
       filters = filters.map((obj) => {
         return {'name': obj.props.filterName ? obj.props.filterName : obj.props.name, 'value': obj.props.value, 'type': obj.props.type}
       })
@@ -252,6 +262,7 @@ export const store = new Vuex.Store({
     getFiltered (state) {
       return state.geoviewer.filtered
     },
+    // Get Filter's value by its name
     getFilterValue: (state) => (name) => {
       let value;
       state.sidebar.tabs.forEach( (el) => {
@@ -265,6 +276,7 @@ export const store = new Vuex.Store({
       })
       return value;
     },
+    // Get Disabled component by its name
     getDisabled: (state) => (name) => {
       let disabled;
       state.sidebar.tabs.forEach( (el) => {
@@ -283,14 +295,18 @@ export const store = new Vuex.Store({
         return a.concat(b)
       }, [])
     },
+    // Get all address properties from json object
     getAddresses (state) {
       return state.geoviewer.geoJSON.features.map((geo) => {
          return geo.properties.project.Address;
       })
     },
+    // Get all category properties from json object
     getCategories (state) {
       let rs = {};
       let arr = [];
+
+      // Iterate all features data to count different categories and sub categories
       state.geoviewer.geoJSON.features.forEach((geo) => {
         const cat = geo.properties.project['Category'];
         const subcat = geo.properties.project['SubCategory'];
@@ -306,6 +322,7 @@ export const store = new Vuex.Store({
         }
       })
 
+      // Transform object data into array for dataSource
       Object.entries(rs).forEach((cat) => {
         let subarr = [];
         Object.entries(cat[1]).forEach((subname) => {
@@ -318,6 +335,9 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
+    setAccessToken (state, val) {
+      state.geoviewer.accessToken = val;
+    },
     setMapLoaded (state, val) {
       state.geoviewer.mapLoaded = val;
     },
@@ -333,6 +353,7 @@ export const store = new Vuex.Store({
     setFiltered (state, data) {
       state.geoviewer.filtered = data;
     },
+    // Dynamic Setter of value by component's name
     setFilterValue (state, obj) {
       state.sidebar.tabs.forEach( (el) => {
         el.controllers.forEach( (controller) => {
@@ -342,6 +363,7 @@ export const store = new Vuex.Store({
         })
       })
     },
+    // Dynamic Setter of disabled by component's name
     setDisabled (state, obj) {
       state.sidebar.tabs.forEach( (el) => {
         el.controllers.forEach( (controller) => {
@@ -351,11 +373,13 @@ export const store = new Vuex.Store({
         })
       })
     },
+    // Set GeoJSON file data
     SET_GEOJSON: (state, data) => {
       state.geoviewer.geoJSON = data;
     }
   },
   actions: {
+    // Reset center to a precise address
     gotoAddress (context, obj) {
       const geoJSON = context.state.geoviewer.geoJSON.features;
       geoJSON.filter((geo) => {
@@ -364,41 +388,43 @@ export const store = new Vuex.Store({
         }
       })
     },
+    // Generate mapbox gl expression for layer's filtering
     doFilterExp (context) {
-      let filters = context.getters.getFilters;
+      // Get all filters by mutated sidebar states
+      const filters = context.getters.getFilters;
 
+      /* Init expression to 'all'
+       * 'all': return true when all criteria matches
+       * 'any': return true when any of the criteria matches
+      */
       let exp = ['all'];
-/*
-      let rs = {}
-      context.state.geoviewer.geoJSON.features.forEach((geo) => {
-        const val = geo.properties.project['Stage'];
-        if(val in rs){
-          rs[val]++;
-        }else{
-          rs[val] = 0;
-        }
-      })
-      console.log(rs);
-*/
+      // Set filter count for watchers
       context.commit('setFilterCount', filters.length);
 
+      /* Iterate to hanlde criteria in array
+       * name@Param String: criteria's property name
+       * value@Param : criteria's property value, could be in many forms
+       * type@Param String: indicates how expressions are generated
+      */
       filters.forEach((filter) => {
         const name = filter.name;
         const value = filter.value;
         const type = filter.type;
 
+        // Generate expressions if value is an array
         if(Array.isArray(value)){
+          // Array handler for range of numbers
           if(type === "number"){
             if(value.length > 0){
               const props = ['>=', ['to-number',['get', name, ['get', 'project']]], value[0]];
               const props2 = ['<=', ['to-number',['get', name, ['get', 'project']]], value[1]];
               exp.push(props, props2);
             }
-          }else if(type === "category"){
-            return;
+          // Array handler for multiple selections of strings
           }else if(type === "check"){
             const props = ['in', ['get', name, ['get', 'project']], ['literal', value]];
             exp.push(props);
+          // Array handler for date range
           }else if(type === "date"){
             if(value.length > 0){
               if(value[0]){
@@ -421,14 +447,19 @@ export const store = new Vuex.Store({
               }
             }
           }
+        // String handler if string appears in value
         }else if(typeof(value) === "string"){
           const props = ['in',['get', name, ['get', 'project']], value];
           exp.push(props);
         }
       })
-      console.log(exp);
+
+      // Commit mutation to set filter's expressions
       context.commit('setFilterExp', exp);
     },
+    /* NOT USING
+     * Off map filter handler to search in  flatten json
+    */
     doFilter (context) {
       let filtered = context.state.geoviewer.geoJSON.features
 

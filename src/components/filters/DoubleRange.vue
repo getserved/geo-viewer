@@ -5,7 +5,7 @@
 				<div v-if="disabled">
 					<div class="range-slider">
 						<a-input placeholder="Min" :disabled="!disabled" size="small" v-model="value[0]"/>
-						<a-slider range :default-value="defaultValue" v-model="value" :disabled="!disabled" :min="min" :max="max" :step="step"  @change="handleSliderChange"/>
+						<a-slider range :default-value="defaultValue" v-model="value" :disabled="!disabled" :min="min" :max="max" :step="step"/>
 						<a-input placeholder="Max" :disabled="!disabled" size="small" v-model="value[1]"/>
 					</div>
 				</div>
@@ -29,6 +29,7 @@ export default {
 	components: {
 	},
 	computed: {
+		// Getter and Setter for v-model value
 		...mapState(['sidebar']),
 		value: {
 			set (value) {
@@ -41,10 +42,9 @@ export default {
 		}
 	},
 	methods: {
+		// Disalbed swtich when user toggled
 		handleDisabledChange: function (disabled) {
 			this.$store.commit('setDisabled', {name:this.name, disabled: disabled});
-		},
-		handleSliderChange: function () {
 		}
 	}
 

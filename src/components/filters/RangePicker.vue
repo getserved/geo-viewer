@@ -25,11 +25,11 @@ export default {
 	components: {
 	},
 	computed: {
+		// Getter and Setter for v-model value
     ...mapState(['sidebar']),
 		value: {
 			set (value) {
 				this.$store.commit('setFilterValue', {name:this.name, value: value})
-				console.log(this.$store.state.sidebar.tabs[1].controllers[4].props);
 			},
 			get () {
 				const val = this.$store.getters['getFilterValue'](this.name);
@@ -38,6 +38,7 @@ export default {
 		}
 	},
 	methods: {
+		// Set dynamic style when focus on picker
 		getCurrentStyle(current) {
       const style = {};
       if (current.date() === 1) {

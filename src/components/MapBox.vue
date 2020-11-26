@@ -8,11 +8,11 @@
   >
     <MglNavigationControl position="top-right"/>
     <MglGeolocateControl position="top-right" />
-    <MglMarker :coordinates="popupCoordinates" color="blue" />
+    <MglMarker :coordinates="getCenter" color="blue" />
     <MglGeojsonLayer
-      sourceId="test"
+      :sourceId="getSourceId"
       :source="geoJsonData"
-      layerId="myLayer"
+      :layerId="getLayerId"
       :layer="geoJsonLayer"
     />
   </MglMap>
@@ -31,23 +31,22 @@ export default {
     MglMarker,
     MglGeojsonLayer
   },
-  data() {
-    return {
-      popupCoordinates: [150.209155, -33.875305],
-
-    }
-  },
   computed: {
     ...mapGetters([
+      'getSourceId',
+      'getLayerId',
       'getAccessToken',
       'getMapStyle',
       'getCenter',
       'getMarkerCoordinates',
-      'getZoom'
+      'getZoom',
+      'getCenter'
     ]),
+    // add source to the map
     geoJsonData () {
       return {"type": "geojson", "data":this.$store.state.geoviewer.geoJSON};
     },
+    // add json layer to the map
     geoJsonLayer() {
       return {
         type: "circle",
@@ -70,8 +69,8 @@ export default {
     this.mapbox = Mapbox;
   },
   methods: {
+    // Set true when Map loaded to initiate navigations
     handleOnLoad: function () {
-      console.log('mapLoaded');
       this.$store.commit('setMapLoaded', true);
     }
   }

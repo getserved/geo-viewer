@@ -13,6 +13,7 @@ export default {
 		disabled: Boolean
 	},
 	computed: {
+		// Getter and Setter for v-model value
 		...mapState(['sidebar']),
 		value: {
 			set (value) {

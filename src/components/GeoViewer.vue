@@ -46,6 +46,7 @@ export default {
   props: {
   },
   data () {
+    //Loading geoJSON file to store
     this.$store.commit('SET_GEOJSON', geoJSON);
     return {
       collapsed: false
@@ -67,6 +68,7 @@ export default {
     }
   },
   watch:{
+    // watch filters change recursively
     '$store.state.sidebar': {
       deep: true,
       handler () {
@@ -75,9 +77,10 @@ export default {
     }
   },
   mounted: function () {
-
+    this.$store.commit('setAccessToken', process.env.VUE_APP_ACCESS_TOKEN)
   },
   methods: {
+    // Collapsed the tabs when user click back btn
     handleBackBtn: function () {
       const menu = this.$refs.menu;
       if(menu.collapsed){
@@ -87,6 +90,7 @@ export default {
         });
       }
     },
+    // expand tabs when user click tab
     callback () {
       const menu = this.$refs.menu;
       if(menu.collapsed){
