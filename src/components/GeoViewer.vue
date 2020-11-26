@@ -1,38 +1,38 @@
 <template>
   <div class="geoviewer">
-    <a-layout id="components-layout-demo-side"  style="min-height: 100vh">
-    <a-layout-sider ref="menu" width="400" theme="light" collapsed class="collapsed">
-      <a-button class="backBtn" type="primary" shape="circle" icon="left" :class="{'show': collapsed}" @click="handleBackBtn"/>
-      <a-tabs
-        :ref="tabs"
-        tab-position="left"
-        @tabClick="callback"
-        class="tabs"
-        :class="{show: mapLoaded}"
-      >
-        <a-tab-pane key="0">
-          <span slot="tab">
-          </span>
-        </a-tab-pane>
-        <a-tab-pane :key="k+1" v-for="(tab, k) in tabs">
-          <span slot="tab">
-            <a-badge class="badge" :count="count" v-if="tab.filterBadge" :overflow-count="5">
-              <a-icon :type="tab.icon" style="font-size:24px;min-width:36px;min-height:36px;"/>
-            </a-badge>
-            <a-icon v-else :type="tab.icon" style="font-size:24px;min-width:36px;min-height:36px;"/>
-          </span>
-          <div class="tab-pane" :class="{'show': collapsed}">
-            <side-bar :title="tab.title" :controllers="tab.controllers"/>
-          </div>
-        </a-tab-pane>
-      </a-tabs>
-    </a-layout-sider>
-    <a-layout>
-      <a-layout-content>
-        <map-box />
-      </a-layout-content>
+    <a-layout style="min-height: 100vh" :class="{landscape: getIsLandscape}">
+      <a-layout-sider ref="menu" width="400" theme="light" collapsed class="collapsed">
+        <a-button class="back-btn" type="primary" shape="circle" icon="left" :class="{'show': collapsed}" @click="handleBackBtn"/>
+        <a-tabs
+          :ref="tabs"
+          tab-position="left"
+          @tabClick="callback"
+          class="tabs"
+          :class="{show: mapLoaded}"
+        >
+          <a-tab-pane key="0">
+            <span slot="tab">
+            </span>
+          </a-tab-pane>
+          <a-tab-pane :key="k+1" v-for="(tab, k) in tabs">
+            <span slot="tab">
+              <a-badge class="badge" :count="count" v-if="tab.filterBadge" :overflow-count="5">
+                <a-icon :type="tab.icon" style="font-size:24px;min-width:36px;min-height:36px;"/>
+              </a-badge>
+              <a-icon v-else :type="tab.icon" style="font-size:24px;min-width:36px;min-height:36px;"/>
+            </span>
+            <div class="tab-pane" :class="{'show': collapsed}">
+              <side-bar :title="tab.title" :controllers="tab.controllers"/>
+            </div>
+          </a-tab-pane>
+        </a-tabs>
+      </a-layout-sider>
+      <a-layout>
+        <a-layout-content>
+          <map-box />
+        </a-layout-content>
+      </a-layout>
     </a-layout>
-  </a-layout>
   </div>
 </template>
 
@@ -65,6 +65,9 @@ export default {
     },
     mapLoaded: function () {
       return this.$store.state.geoviewer.mapLoaded
+    },
+    getIsLandscape: function () {
+        return this.$store.state.geoviewer.isLandscape
     }
   },
   watch:{
@@ -78,6 +81,7 @@ export default {
   },
   mounted: function () {
     this.$store.commit('setAccessToken', process.env.VUE_APP_ACCESS_TOKEN)
+    this.$store.commit('setIsLandscape', screen.availHeight > screen.availWidth)
   },
   methods: {
     // Collapsed the tabs when user click back btn
@@ -122,7 +126,7 @@ export default {
     pointer-events: auto;
   }
 }
-.backBtn{
+.back-btn{
   position: absolute;
   top:1%;
   right: 0;
@@ -160,6 +164,19 @@ export default {
 .badge{
   /deep/ .ant-badge-count{
 
+  }
+}
+
+.landscape{
+  /deep/ .ant-tabs .ant-tabs-left-content{
+    width: calc(100vw - 80px);
+  }
+
+  /deep/ .back-btn{
+    transform: translateX(-100%);
+  }
+  /deep/ .ant-tabs-tab{
+    padding: 0;
   }
 }
 </style>

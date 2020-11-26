@@ -24,6 +24,7 @@ const flattenObj = function (obj, parent, res = {}){
 export const store = new Vuex.Store({
   state: {
     geoviewer: {
+      isLandscape: false,
       accessToken: ``,  // access token from mapbox's account
       mapStyle: `mapbox://styles/mapbox/streets-v11`, // style file name from mapbox
       sourceId: `archistar`,                          // Source ID for geoJSON
@@ -214,6 +215,9 @@ export const store = new Vuex.Store({
     }
   },
   getters: {
+    getIsLandscape (state) {
+      return state.geoviewer.isLandscape
+    },
     getAccessToken (state) {
       return state.geoviewer.accessToken
     },
@@ -335,6 +339,9 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
+    setIsLandscape (state, val) {
+      state.geoviewer.isLandscape = val;
+    },
     setAccessToken (state, val) {
       state.geoviewer.accessToken = val;
     },
